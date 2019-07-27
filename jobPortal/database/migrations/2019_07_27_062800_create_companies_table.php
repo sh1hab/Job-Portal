@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('last_name');
             $table->string('business_name');
             $table->string('email_address');
+            $table->bigInteger('user_id')->comment('company_owner');
             $table->timestamps();
         });
     }

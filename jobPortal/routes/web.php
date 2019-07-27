@@ -19,12 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/company','CompanyController@create')->name('company');
-Route::post('/company','CompanyController@store')->name('company.register');
+Route::get('/company','CompanyController@create')->name('company')->middleware('auth');
+Route::post('/company','CompanyController@store')->name('company.register')->middleware('auth');
 
-Route::get('/job','JobController@create')->name('job');
-Route::post('/job','JobController@store')->name('job.register');
+Route::get('/job','JobController@create')->name('job')->middleware('auth');
+Route::post('/job','JobController@store')->name('job.register')->middleware('auth');
+Route::get('/jobs','JobController@index')->name('jobs')->middleware('auth');
 
-Route::post('/job/apply','JobController@store')->name('job.apply');
+Route::post('/job/apply','JobController@store')->name('job.apply')->middleware('auth');
+
+Route::get('/profile','ApplicantsController@profile')->name('profile')->middleware('auth');
 
 

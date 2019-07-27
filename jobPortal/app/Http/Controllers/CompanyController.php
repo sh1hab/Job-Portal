@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company as Company;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -35,7 +36,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        Company::create($request->all());
+
+        $data=$request->all();
+        $data['user_id']=Auth::id();
+        Company::create($data);
         return redirect( route('job') );
     }
 
