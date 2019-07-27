@@ -9,7 +9,7 @@
                     <div class="card-header">{{ __('Profile') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('job.register')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('updateProfile')}}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -25,7 +25,6 @@
                                     @enderror
                                 </div>
                             </div>
-
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('skills') }}</label>

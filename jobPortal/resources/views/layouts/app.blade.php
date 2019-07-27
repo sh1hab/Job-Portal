@@ -37,6 +37,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                             </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('jobs') }}">{{ __('Jobs') }}</a>
+                        </li>
 {{--                        @endif--}}
                     </ul>
 
@@ -59,7 +63,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+{{--                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>--}}
+                                    <a class="dropdown-item" href="{{ route('jobs') }}">Jobs</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

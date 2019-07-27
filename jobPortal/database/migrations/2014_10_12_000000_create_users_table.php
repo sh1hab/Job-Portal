@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('user_type')->comment('1 => employer, 2 => employee');
+            $table->string('profile_picture')->default('null');
+            $table->string('resume')->default('null');
+            $table->string('skills')->default('null');
             $table->rememberToken();
             $table->timestamps();
         });

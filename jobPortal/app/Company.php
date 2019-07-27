@@ -11,6 +11,6 @@ class Company extends Model
     protected $guarded=[];
 
     function jobs(){
-        return Company::hasMany(App\Job::Class);
+        return Company::hasMany('App\Job');
     }
 }

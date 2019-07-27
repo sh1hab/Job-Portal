@@ -21,7 +21,7 @@
                                         is-invalid @enderror" name="company_id" value="{{ old('company_id') }}" required autocomplete="company_id" autofocus>
                                         <option selected="selected"></option>
                                         @foreach($companies as $company)
-                                            <option value="{{$company['id']}}"><?php echo $company['business_name']?></option>
+                                            <option value="{{$company->id}}"><?php echo $company->business_name?></option>
                                             @endforeach
 
                                     </select>

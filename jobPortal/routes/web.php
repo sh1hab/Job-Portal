@@ -26,8 +26,9 @@ Route::get('/job','JobController@create')->name('job')->middleware('auth');
 Route::post('/job','JobController@store')->name('job.register')->middleware('auth');
 Route::get('/jobs','JobController@index')->name('jobs')->middleware('auth');
 
-Route::post('/job/apply','JobController@store')->name('job.apply')->middleware('auth');
+Route::post('/job/apply','ApplicantsController@apply')->name('job.apply')->middleware('auth');
 
 Route::get('/profile','ApplicantsController@profile')->name('profile')->middleware('auth');
+Route::post('/profile','ApplicantsController@updateProfile')->name('updateProfile')->middleware('auth');
 
 
