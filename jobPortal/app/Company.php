@@ -13,4 +13,8 @@ class Company extends Model
     function jobs(){
         return Company::hasMany('App\Job');
     }
+
+    function User(){
+        return User::belongsTo('App\User');
+    }
 }

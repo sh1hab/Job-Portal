@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Profile') }}</div>
+                    <div class="card-header">{{ __('Profile of ').Auth::user()->name }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{route('updateProfile')}}" enctype="multipart/form-data">

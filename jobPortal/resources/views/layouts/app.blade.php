@@ -33,15 +33,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-{{--                        @if (Route::has('register'))--}}
+                        @if ( Auth::check() && Auth::user()->user_type==1 )
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                             </li>
+                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('jobs') }}">{{ __('Jobs') }}</a>
                         </li>
-{{--                        @endif--}}
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -59,11 +60,11 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::check() &&  Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-{{--                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>--}}
+
                                     <a class="dropdown-item" href="{{ route('jobs') }}">Jobs</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

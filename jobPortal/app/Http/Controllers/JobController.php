@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Http\Resources\Jobs;
+use App\Http\Resources\JobsResource;
 use App\User;
 use Illuminate\Http\Request;
 use App\Job as Job;
@@ -12,10 +14,13 @@ use Illuminate\Support\Facades\DB;
 class JobController extends Controller
 {
     public function index(){
-//        $companies=Company::find( Auth::id() )->get();
-        $jobs=Job::all();
-        $user=User::find(Auth::id());
-        return view('job.index',compact('jobs','user'));
+        $jobs=Job::with(['company:id,business_name'])->paginate(5);
+//        return view('job.index',compact('jobs'));
+        return JobsResource::collection($jobs);
+    }
+
+    function edit(Job $job){
+        return new JobsResource($job);
     }
 
     public function create(){
@@ -28,4 +33,16 @@ class JobController extends Controller
         Job::create($data);
         return redirect(route('jobs'));
     }
+
+    function destroy(Request $request){
+        try {
+            $job = Job::find($request->id);
+            $job->delete();
+            return response('ok');
+        }catch (\Exception $exception){
+
+        }
+    }
+
+
 }

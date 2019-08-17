@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CompanyResource;
 use Illuminate\Http\Request;
 use App\Company as Company;
 use Illuminate\Support\Facades\Auth;
@@ -11,11 +12,13 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-
+//        $companies=Company::where('user_id',Auth::id())->get();
+        $companies=Company::select('id','business_name')->get();
+        return CompanyResource::collection($companies);
     }
 
     /**
@@ -36,7 +39,6 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-
         $data=$request->all();
         $data['user_id']=Auth::id();
         Company::create($data);
