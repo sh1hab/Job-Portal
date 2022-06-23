@@ -17,7 +17,7 @@ class ApplicantsController extends Controller
         $user=User::find(Auth::id());
     }
 
-    function profile(){
+    function getProfile(){
         $user=$this->user;
         return view('profile.index',compact('user'));
     }
@@ -46,7 +46,7 @@ class ApplicantsController extends Controller
         if ( $user['resume']==null){
             return back();
         }
-//        dd($request->all());
+        
         $data=array();
         $data['job_id']=$request->job_id;
         $data['company_id']=$request->company_id;

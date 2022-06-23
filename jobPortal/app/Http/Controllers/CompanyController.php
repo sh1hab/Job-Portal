@@ -16,7 +16,6 @@ class CompanyController extends Controller
      */
     public function index()
     {
-//        $companies=Company::where('user_id',Auth::id())->get();
         $companies=Company::select('id','business_name')->get();
         return CompanyResource::collection($companies);
     }

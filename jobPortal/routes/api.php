@@ -34,5 +34,5 @@ Route::get('/job/{job}','JobController@edit')->name('job.edit');
 
 Route::post('/job/apply','ApplicantsController@apply')->name('job.apply')->middleware('auth');
 
-Route::get('/profile','ApplicantsController@profile')->name('profile')->middleware('auth');
+Route::get('/profile','ApplicantsController@getProfile')->name('profile')->middleware('auth');
 Route::post('/profile','ApplicantsController@updateProfile')->name('updateProfile')->middleware('auth');
